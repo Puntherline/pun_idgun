@@ -12,6 +12,9 @@ Put the folder called `pun_idgun` into your resources folder, then refresh your 
 
 
 I've looked at the functionality of multiple resources so without them I would not have been able to create this or even done some other things, so I'd feel bad not mentioning them:
+
 • qalle_coords (For simple command that toggles on/off)
+
 • object delete gun (For the aiming gun at object lines)
+
 • SimpleCarHUD (For some text-elements and design)
