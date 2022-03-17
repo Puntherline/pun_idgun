@@ -4,15 +4,13 @@ local coordsText = ""   -- Removes any text the coords had stored.
 local headingText = ""  -- Removes any text the heading had stored.
 local modelText = ""    -- Removes any text the model had stored.
 
-
-
 -- Thread that makes everything happen.
 Citizen.CreateThread(function()                             -- Create the thread.
     while true do                                           -- Loop it infinitely.
         local pause = 250                                   -- If infos are off, set loop to every 250ms. Eats less resources.
         if infoOn then                                      -- If the info is on then...
             pause = 5                                       -- Only loop every 5ms (equivalent of 200fps).
-            local player = GetPlayerPed(-1)                 -- Get the player.
+            local player = PlayerPedId()                    -- Get the player.
             if IsPlayerFreeAiming(PlayerId()) then          -- If the player is free-aiming (update texts)...
                 local entity = getEntity(PlayerId())        -- Get what the player is aiming at. This isn't actually the function, that's below the thread.
                 local coords = GetEntityCoords(entity)      -- Get the coordinates of the object.
@@ -28,15 +26,11 @@ Citizen.CreateThread(function()                             -- Create the thread
     end                                                     -- End (stop looping).
 end)                                                        -- Endind the entire thread here.
 
-
-
 -- Function to get the object the player is actually aiming at.
 function getEntity(player)                                          -- Create this function.
     local result, entity = GetEntityPlayerIsFreeAimingAt(player)    -- This time get the entity the player is aiming at.
     return entity                                                   -- Returns what the player is aiming at.
 end                                                                 -- Ends the function.
-
-
 
 -- Function to draw the text.
 function DrawInfos(text)
@@ -53,14 +47,10 @@ function DrawInfos(text)
     DrawText(0.015, 0.71)               -- Position
 end
 
-
-
 -- Creating the function to toggle the info.
 ToggleInfos = function()                -- "ToggleInfos" is a function
     infoOn = not infoOn                 -- Switch them around
 end                                     -- Ending the function here.
-
-
 
 -- Creating the command.
 RegisterCommand("idgun", function()     -- Listen for this command.
