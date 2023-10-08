@@ -63,6 +63,8 @@ Citizen.CreateThread(function()                             -- Create the thread
                 DrawInfos("Coordinates: " .. coordsText, "Heading: " .. headingText, "Hash: " .. modelText)     -- Draw the text on screen
             end
 
+			-- print to console on E release
+			if IsControlJustReleased(0, 38) then print(("\nCoords: %s\nHeading: %s\nHash: %s\n%s"):format(coordsText, headingText, modelText, modelVehText == "" and "" or ("Vehicle Hash: %s"):format(modelVehText))) end
         end                                                 -- Info is off, don't need to do anything.
         Citizen.Wait(pause)                                 -- Now wait the specified time.
     end                                                     -- End (stop looping).
@@ -102,5 +104,10 @@ end                                     -- Ending the function here.
 
 -- Creating the command.
 RegisterCommand("idgun", function()     -- Listen for this command.
-    ToggleInfos()                       -- Heard it! Let's toggle the function above.
+	TriggerServerEvent("pun_idgun:c_s:RequestToggle")
 end)                                    -- Ending the function here.
+
+RegisterNetEvent("pun_idgun:s_c:ToggleAllowed")
+AddEventHandler("pun_idgun:s_c:ToggleAllowed", function()
+	ToggleInfos()
+end)

@@ -1,20 +1,27 @@
-# pun_idgun
+# Puntherline's ID Gun
+<sub>Note: This is a very simple resource, I've made a more advanced version available [here](https://github.com/Puntherline/pun_propinfo) (free of course)</sub>
+
+
+### Installation
+- Code > Download ZIP
+- Unzip in `resources` folder
+- Add `ensure pun_idgun` to `server.cfg`
+- Add `command.idgun` ace to your `server.cfg`, example:
+```
+add_ace group.moderator command.idgun allow
+```
+
+If you wish to disable permission checking, change `requirePermissions` in `server.lua` to `false`.
 
 
 
-This resource will get the coordinates, heading, rotation and hash of any entity you aim a gun at. The problem here is that GTA V uses Jenkin's one-at-a-time encryption to get the hashes and while it is possible to reverse that, it takes a bit of resources to do that and also I'm nowhere near clever enough to actually write a script that would decrypt that.
+### What it does
+This resource will get the coordinates, heading, rotation and hash of any entity you aim a gun at. It also shows you the hash, courtesy of [PhilippRedel](https://github.com/PhilippRedel).
 
 
 
-Installation:
-Put the folder called `pun_idgun` into your resources folder, then refresh your resources and ensure the resource. You may rename the folder, I don't care about that. You can also make changes and redistribute it if you want to, don't care about that either.
-
-
-
-I've looked at the functionality of multiple resources so without them I would not have been able to create this or even done some other things, so I'd feel bad not mentioning them:
-
-• qalle_coords (For simple command that toggles on/off)
-
-• object delete gun (For the aiming gun at object lines)
-
-• SimpleCarHUD (For some text-elements and design)
+### Credits
+- [PhilippRedel](https://github.com/PhilippRedel) (For updating the resource to show hashes)
+- qalle_coords (For simple command that toggles on/off)
+- object delete gun (For the aiming gun at object lines)
+- SimpleCarHUD (For some text-elements and design)
